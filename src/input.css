@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Helvetica';
+  }
+  body {
+    overflow-y: hidden; /* hides y scroll */
+    overflow-x: hidden; /* hides x scroll */
+  }
+}
