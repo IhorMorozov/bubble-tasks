@@ -37,7 +37,7 @@ const Bubble = (props) => {
         'borderRadius': '50%',
     }
 
-    if (!['grey', 'black'].includes(color)) {
+    if (!['grey', 'black', 'purple', 'pink'].includes(color)) {
         style.color = APP_COLORS.grey;
     }
 
@@ -48,8 +48,8 @@ const Bubble = (props) => {
 
     let bubbleTitle;
     const setBubbleTitle = () => {
-        if (props.title.length > 20) {
-            bubbleTitle = props.title.substring(0, 9) + "...";
+        if (props.title.length > 30) {
+            bubbleTitle = props.title.substring(0, 15) + "...";
         }
         else {
             bubbleTitle = props.title;
@@ -79,7 +79,7 @@ const Bubble = (props) => {
         else {
             setBubbleTitle();
         }
-        document.getElementById(props.id).innerHTML = bubbleTitle;
+        document.getElementById(`title-${props.id}`).innerHTML = bubbleTitle;
     }
 
 
@@ -88,7 +88,7 @@ const Bubble = (props) => {
     return (
         <div id={props.id} style={style} onDoubleClick={() => handlePop()} onMouseEnter={() => toggleHover()} onMouseLeave={() => toggleHover()}>
             {/* `${y - currentDiam / 2}px`; */}
-            <p className="text-center">{bubbleTitle}</p>
+            <p id={`title-${props.id}`} className="text-center" title={props.title}>{bubbleTitle}</p>
         </div>
     );
 }
